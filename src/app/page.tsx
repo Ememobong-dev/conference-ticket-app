@@ -1,9 +1,49 @@
+"use client";
+
+
 import Image from "next/image";
 import logoFull from "@/assets/images/logo-full.svg";
 import patternBottom from "@/assets/images/pattern-squiggly-line-bottom-desktop.svg";
 import patternTop from "@/assets/images/pattern-squiggly-line-top.svg";
+import uploadIcon from "@/assets/images/icon-upload.svg";
+import { useRouter } from "next/navigation";
+import { useState } from "react";
 
 export default function Home() {
+    const [formData, setFormData] = useState({
+      fullName: "",
+      email: "",
+      githubUsername: "",
+      avatar: null,
+    });
+
+    const router = useRouter();
+
+    const handleInputChange = (e) => {
+      const { name, value } = e.target;
+      setFormData((prev) => ({ ...prev, [name]: value }));
+    };
+
+    const handleFileChange = (e) => {
+      const file = e.target.files[0];
+      setFormData((prev) => ({ ...prev, avatar: file }));
+    };
+
+    const handleSubmit = (e) => {
+      e.preventDefault();
+      // Pass data to the ticket page via query
+      router.push(
+        `/ticket?fullName=${encodeURIComponent(
+          formData.fullName
+        )}&email=${encodeURIComponent(formData.email)}&githubUsername=${encodeURIComponent(
+          formData.githubUsername
+        )}&avatar=${
+          formData.avatar ? encodeURIComponent(URL.createObjectURL(formData.avatar)) : ""
+        }`
+      );
+    };
+
+
   return (
     <div className="relative h-screen">
       <div className="absolute top-0 right-0">
@@ -26,17 +66,21 @@ export default function Home() {
         </div>
 
         {/* Form */}
-        <div className="mt-8 text-white rounded-xl p-6 w-full max-w-md shadow-lg">
+        <form onSubmit={handleSubmit}  className="mt-8 text-white rounded-xl p-6 w-full max-w-md shadow-lg">
          <div className="mb-6">
             <label className="block text-sm font-medium text-gray-700 mb-2">
               Upload Avatar
             </label>
             <div className="border-dashed border-2 border-gray-300 rounded-xl p-4 text-center">
+             <span className="bg-slate-600">
+              <Image className="flex justify-center mx-auto " src={uploadIcon} alt="" />
+             </span>
               <input
                 type="file"
                 accept="image/*"
                 className="hidden"
                 id="avatar-upload"
+                onChange={handleFileChange}
               />
               <label
                 htmlFor="avatar-upload"
@@ -53,8 +97,9 @@ export default function Home() {
             <label className="block text-sm font-medium mb-1">Full Name</label>
             <input
               type="text"
-              className="w-full rounded-xl border border-gray-300 py-2 px-4 focus:outline-none focus:ring-2 focus:ring-purple-600"
+              className="w-full placeholder:text-gray-800 bg-transparent  rounded-xl border border-gray-300 py-2 px-4 focus:outline-none focus:ring-2 focus:ring-purple-600"
               placeholder="Enter your full name"
+              onChange={handleInputChange}
             />
           </div>
           <div className="mb-4">
@@ -63,8 +108,9 @@ export default function Home() {
             </label>
             <input
               type="email"
-              className="w-full rounded-xl border border-gray-300 py-2 px-4 focus:outline-none focus:ring-2 focus:ring-purple-600"
+              className="w-full placeholder:text-gray-800 bg-transparent  rounded-xl border border-gray-300 py-2 px-4 focus:outline-none focus:ring-2 focus:ring-purple-600"
               placeholder="Enter your email"
+              onChange={handleInputChange}
             />
           </div>
           <div className="mb-6">
@@ -73,16 +119,17 @@ export default function Home() {
             </label>
             <input
               type="text"
-              className="w-full rounded-xl border border-gray-300 py-2 px-4 focus:outline-none focus:ring-2 focus:ring-purple-600"
+              className="w-full placeholder:text-gray-800 bg-transparent  rounded-xl border border-gray-300 py-2 px-4 focus:outline-none focus:ring-2 focus:ring-purple-600"
               placeholder="@yourusername"
+              onChange={handleInputChange}
             />
           </div>
           <div>
-            <button className="w-full bg-purple-600 text-white py-2 rounded-xl font-semibold hover:bg-purple-700 transition">
+            <button  type="submit" className="w-full placeholder:text-gray-800  bg-purple-600 text-white py-2 rounded-xl font-semibold hover:bg-purple-700 transition">
               Generate My Ticket
             </button>
           </div>
-        </div>
+        </form>
       </div>
 
       {/* Bottom Pattern */}
