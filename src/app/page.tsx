@@ -19,17 +19,17 @@ export default function Home() {
 
     const router = useRouter();
 
-    const handleInputChange = (e) => {
+    const handleInputChange = (e: ChangeEvent<HTMLInputElement>) => {
       const { name, value } = e.target;
       setFormData((prev) => ({ ...prev, [name]: value }));
     };
 
-    const handleFileChange = (e) => {
+    const handleFileChange = (e:ChangeEvent<HTMLInputElement>) => {
       const file = e.target.files[0];
       setFormData((prev) => ({ ...prev, avatar: file }));
     };
 
-    const handleSubmit = (e) => {
+    const handleSubmit = (e:ChangeEvent<HTMLInputElement>) => {
       e.preventDefault();
       router.push(
         `/ticket?fullName=${encodeURIComponent(
