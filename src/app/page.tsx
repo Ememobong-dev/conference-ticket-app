@@ -31,7 +31,6 @@ export default function Home() {
 
     const handleSubmit = (e) => {
       e.preventDefault();
-      // Pass data to the ticket page via query
       router.push(
         `/ticket?fullName=${encodeURIComponent(
           formData.fullName
