@@ -128,7 +128,7 @@ export default function Home() {
             />
           </div>
           <div>
-            <button  type="submit" className="w-full placeholder:text-gray-800  bg-[hsl(7, 71%, 60%)] text-white py-2 rounded-xl font-semibold hover:bg-purple-700 transition">
+            <button  type="submit" className="w-full placeholder:text-gray-800  bg-orangeBold text-white py-2 rounded-xl font-semibold hover:bg-purple-700 transition">
               Generate My Ticket
             </button>
           </div>

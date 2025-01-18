@@ -9,8 +9,7 @@ export default {
   theme: {
     extend: {
       colors: {
-        background: "var(--background)",
-        foreground: "var(--foreground)",
+        orangeBold :"hsl(7, 71%, 60%)",
       },
     },
   },
