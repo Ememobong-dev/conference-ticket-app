@@ -1,5 +1,4 @@
-"use client"
-
+"use client";
 
 import { useRouter } from "next/navigation";
 import { useSearchParams } from "next/navigation";
@@ -63,6 +62,7 @@ export default function Ticket() {
             Back to Home
             </button>
         </div>
+
         {/* Bottom Pattern */}
         <div className="absolute bottom-0 left-0">
             <Image src={patternBottom} alt="Bottom Pattern" />
