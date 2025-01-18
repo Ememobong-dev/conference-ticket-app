@@ -15,7 +15,10 @@
 }
 
 body {
-  color: var(--foreground);
-  background: var(--background);
+  background: url('../assets/images//background-desktop.png');
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
   font-family: Arial, Helvetica, sans-serif;
+  height: 100vh;
 }
