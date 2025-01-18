@@ -67,7 +67,7 @@ export default function Home() {
         {/* Form */}
         <form onSubmit={handleSubmit}  className="mt-8 text-white rounded-xl p-6 w-full max-w-md shadow-lg">
          <div className="mb-6">
-            <label className="block text-sm font-medium text-gray-700 mb-2">
+            <label className="block text-sm font-medium text-white mb-2">
               Upload Avatar
             </label>
             <div className="border-dashed border-2 border-gray-300 rounded-xl p-4 text-center">
