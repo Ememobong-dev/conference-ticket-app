@@ -99,6 +99,7 @@ export default function Home() {
               type="text"
               className="w-full placeholder:text-gray-800 bg-transparent  rounded-xl border border-gray-300 py-2 px-4 focus:outline-none focus:ring-2 focus:ring-purple-600"
               placeholder="Enter your full name"
+              name="fullName" 
               onChange={handleInputChange}
             />
           </div>
@@ -111,6 +112,7 @@ export default function Home() {
               className="w-full placeholder:text-gray-800 bg-transparent  rounded-xl border border-gray-300 py-2 px-4 focus:outline-none focus:ring-2 focus:ring-purple-600"
               placeholder="Enter your email"
               onChange={handleInputChange}
+              name="email" 
             />
           </div>
           <div className="mb-6">
@@ -122,10 +124,11 @@ export default function Home() {
               className="w-full placeholder:text-gray-800 bg-transparent  rounded-xl border border-gray-300 py-2 px-4 focus:outline-none focus:ring-2 focus:ring-purple-600"
               placeholder="@yourusername"
               onChange={handleInputChange}
+              name="githubUsername" 
             />
           </div>
           <div>
-            <button  type="submit" className="w-full placeholder:text-gray-800  bg-purple-600 text-white py-2 rounded-xl font-semibold hover:bg-purple-700 transition">
+            <button  type="submit" className="w-full placeholder:text-gray-800  bg-[hsl(7, 71%, 60%)] text-white py-2 rounded-xl font-semibold hover:bg-purple-700 transition">
               Generate My Ticket
             </button>
           </div>

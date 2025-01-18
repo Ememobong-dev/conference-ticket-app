@@ -30,19 +30,27 @@ export default function Ticket() {
             </div>
 
             <div className="text-center mt-6">
-                <h3 className="text-3xl font-bold">
-                    Congrats, <span  className="text-lg font-semibold bg-clip-text text-transparent bg-gradient-to-r from-[hsl(7,86%,67%)] to-[hsl(0,0%,100%)]">{fullName} !</span> 
+                <h3 className="text-5xl leading-relaxed  font-bold">
+                    Congrats, <span  className="bg-clip-text text-transparent bg-gradient-to-r from-[hsl(7,86%,67%)] to-[hsl(0,0%,100%)]">{fullName}!</span> 
                     <br /> Your ticket is ready.
                 </h3>
-                <p className="text-lg mt-2">
-                    We&apos;ve emailed your ticket to {email} and will send updates in the run up to the event
+                <p className="text-lg mt-2 ">
+                    We&apos;ve emailed your ticket to 
+                </p>
+                <p>
+                    {email} and will send updates in 
+                </p>
+                <p>
+                    the run up to the event
                 </p>
             </div>
             {avatar && (
-            <img
+            <Image
                 src={decodeURIComponent(avatar)}
                 alt="Avatar"
-                className="mx-auto rounded-full w-32 h-32 mb-4"
+                className="mx-auto rounded-full mt-10 w-32 h-32 mb-4"
+                width={48}
+                height={48}
             />
             )}
             <p className="text-lg font-semibold">Name: {fullName}</p>
